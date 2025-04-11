@@ -1,0 +1,133 @@
+/* Basic Reset & Body Style */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0; /* Light background for contrast */
+}
+
+/* Calculator Container */
+.calculator {
+    width: 100%;
+    max-width: 350px; /* Adjust max-width as needed */
+    border-radius: 15px;
+    overflow: hidden; /* Ensures children conform to border-radius */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background-color: #333; /* Darker background for the calculator body */
+
+    /* Main Grid Layout: Title, Display, Buttons Area */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+    grid-template-rows: auto auto 1fr; /* Rows for title, display, and button area */
+}
+
+/* Title Styling */
+.calculator-title {
+    grid-column: 1 / -1; /* Span all 4 columns */
+    text-align: center;
+    padding: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #eee;
+    background-color: #444; /* Slightly different background for title */
+    height: 40px; /* Explicit height for 1 row tall */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Display Styling */
+.calculator-display {
+    grid-column: 1 / -1; /* Span all 4 columns */
+    background-color: #688a68; /* Color 4: Display background (e.g., greenish) */
+    color: #ffffff; /* White text */
+    text-align: right;
+    padding: 20px 15px; /* More padding */
+    font-size: 2.5em; /* Larger font */
+    min-height: 80px; /* Make it taller ~ 2 rows */
+    word-wrap: break-word;
+    word-break: break-all; /* Prevent overflow */
+    display: flex; /* Use flexbox for vertical alignment */
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+}
+
+.display-content {
+    line-height: 1.2; /* Adjust line height if needed */
+}
+
+
+/* Button Grid Container */
+.calculator-buttons {
+    grid-column: 1 / -1; /* Span all 4 columns */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for buttons */
+    /* grid-template-rows: repeat(5, auto); */ /* Define rows for buttons */
+    gap: 10px; /* Buffer between buttons */
+    padding: 15px; /* Padding around the button area */
+    background-color: #333; /* Match calculator body */
+}
+
+/* General Button Styling */
+.btn {
+    /* Making buttons taller - simulate "2 rows tall" feel */
+    padding: 18px 0; /* Increase vertical padding */
+    font-size: 1.5em; /* Larger text */
+
+    border: none;
+    border-radius: 50px; /* Make buttons round (or very rounded) */
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff; /* Default text color */
+    min-height: 60px; /* Ensure a minimum height */
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+/* Color 1: Number Buttons */
+.btn-number {
+    background-color: #6a6a6a; /* Dark grey */
+    color: #fff;
+}
+
+/* Color 2: Function Buttons */
+.btn-function {
+    background-color: #ffa500; /* Orange */
+    color: #fff;
+}
+
+/* Color 3: Action Buttons */
+.btn-action {
+    background-color: #d3d3d3; /* Light grey */
+    color: #333; /* Dark text for contrast */
+}
+.btn-action[data-action="calculate"] { /* Make equals button stand out */
+     background-color: #ff8c00; /* Darker orange */
+     color: #fff;
+}
+
+
+/* Specific Button Adjustments (Optional) */
+/* If you want the zero button to span 2 columns: */
+/*
+.btn-zero {
+    grid-column: span 2;
+}
+*/
