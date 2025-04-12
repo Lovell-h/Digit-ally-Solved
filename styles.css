@@ -101,7 +101,7 @@ body {
 }
 
 /* Button Color Styling */
-.button.number {
+.button.number, .button.decimal{
     background-color: var(--number-color);
     color: var(--button-text-light);
 }
