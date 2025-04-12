@@ -4,43 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digit-ally Solved</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <script src="magic.js"></script>
 </head>
-<body>
 
+<body>
     <div class="calculator">
-        <div class="calculator-title">Calculator</div>
-        <div class="calculator-display">
+        <div class="title">Digit-ally Solved</div>
+        <div class="display">
             <div class="display-content">0</div>
         </div>
-        <div class="calculator-buttons">
-            <button class="btn btn-action" data-action="clear">AC</button>
-            <button class="btn btn-function" data-action="negate">+/-</button>
-            <button class="btn btn-function" data-action="percent">%</button>
-            <button class="btn btn-function" data-operator="divide">/</button>
-
-            <button class="btn btn-number" data-value="7">7</button>
-            <button class="btn btn-number" data-value="8">8</button>
-            <button class="btn btn-number" data-value="9">9</button>
-            <button class="btn btn-function" data-operator="multiply">*</button>
-
-            <button class="btn btn-number" data-value="4">4</button>
-            <button class="btn btn-number" data-value="5">5</button>
-            <button class="btn btn-number" data-value="6">6</button>
-            <button class="btn btn-function" data-operator="subtract">-</button>
-
-            <button class="btn btn-number" data-value="1">1</button>
-            <button class="btn btn-number" data-value="2">2</button>
-            <button class="btn btn-number" data-value="3">3</button>
-            <button class="btn btn-function" data-operator="add">+</button>
-
-            <button class="btn btn-number btn-zero" data-value="0">0</button> <button class="btn btn-number" data-action="decimal">.</button>
-            <button class="btn btn-action" data-action="backspace">BS</button>
-            <button class="btn btn-action" data-action="calculate">=</button>
+        <div class="buttons">
+            <div class="button-row">
+                <button class="button action">AC</button>
+                <button class="button action">BS</button> 
+                <button class="button function">%</button>
+                <button class="button function">/</button>
+            </div>
+            <div class="button-row">
+                <button class="button number">7</button>
+                <button class="button number">8</button>
+                <button class="button number">9</button>
+                <button class="button function">*</button>
+            </div>
+            <div class="button-row">
+                <button class="button number">4</button>
+                <button class="button number">5</button>
+                <button class="button number">6</button>
+                <button class="button function">-</button>
+            </div>
+            <div class="button-row">
+                <button class="button number">1</button>
+                <button class="button number">2</button>
+                <button class="button number">3</button>
+                <button class="button function">+</button>
+            </div>
+            <div class="button-row">
+                <button class="button number zero">0</button> 
+                <button class="button number">.</button>
+                <button class="button action">=</button>
+            </div>
         </div>
     </div>
-
-    <script src="script.js"></script>
 </body>
 </html>

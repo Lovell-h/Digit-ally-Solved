@@ -1,54 +1,64 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const displayElement = document.querySelector('.display-content');
-    const buttonsContainer = document.querySelector('.calculator-buttons');
+// Basic structure - Calculator logic would go here
 
-    buttonsContainer.addEventListener('click', (event) => {
-        // Ensure the click was directly on a button
-        if (!event.target.matches('button')) {
-            return;
-        }
+document.addEventListener('DOMContentLoaded', () =>
+    {
+    const displayContent = document.querySelector('.display-content');
+    const buttons = document.querySelectorAll('.button');
 
-        const button = event.target;
-        const action = button.dataset.action;
-        const value = button.dataset.value;
-        const operator = button.dataset.operator;
-        const displayedNum = displayElement.textContent;
+    console.log("Calculator layout loaded. Buttons found:", buttons.length);
 
-        console.log('--- Button Clicked ---');
-        console.log('Button Text:', button.textContent);
-        if (value) console.log('Type: Number, Value:', value);
-        if (operator) console.log('Type: Operator, Value:', operator);
-        if (action) console.log('Type: Action, Value:', action);
-        console.log('Current Display:', displayedNum);
-        console.log('----------------------');
+    // Example: Add event listeners (This part is for functionality, not just layout)
+    buttons.forEach(button => 
+        {
+            button.addEventListener('click', () => 
+                {
+                    const buttonText = button.textContent;
+                    console.log(`Button clicked: ${buttonText}`);
+            // --- Placeholder for actual calculator logic ---
+            // if (button.classList.contains('number')) {
+            //     // Handle number input
+            // } else if (button.classList.contains('function')) {
+            //     // Handle function input
+            // } else if (button.classList.contains('action')) {
+            //     // Handle action input (AC, =, etc.)
+            // }
+            // Update displayContent.textContent based on logic
+            // --- End Placeholder ---
 
-
-        // --- Placeholder for Calculator Logic ---
-        // Here you would add the code to:
-        // - Update the display when numbers are clicked.
-        // - Handle operators (+, -, *, /).
-        // - Perform calculations when '=' is clicked.
-        // - Implement AC (All Clear), +/- (Negate), % (Percent), BS (Backspace).
-        // - Manage state (first number, operator, second number).
-
-        // Example: Append number (very basic, needs more logic)
-        if (value) {
-            if (displayedNum === '0') {
-                displayElement.textContent = value;
-            } else {
-                // Add limits to display length if needed
-                displayElement.textContent += value;
-            }
-        }
-
-        // Example: Clear (very basic)
-        if (action === 'clear') {
-            displayElement.textContent = '0';
-            // Reset other calculator states here
-        }
-
-        // Add more logic for other buttons (operators, actions, etc.)
-        // ...
-
-    });
+            // Simple demonstration: display the clicked button text
+            // (Remove this when implementing real logic)
+                if (buttonText !== 'AC' && buttonText !== 'BS') 
+                    {
+                        if (displayContent.textContent === '0' && !button.classList.contains('function') && buttonText !== '.') 
+                            {
+                                displayContent.textContent = buttonText;
+                            } else 
+                            {
+                                // Prevent multiple decimal points
+                                if (buttonText === '.' && displayContent.textContent.includes('.')) 
+                                    {
+                                        return;
+                                    }
+                                
+                                displayContent.textContent += buttonText;
+                            }
+                    } 
+                    else if (buttonText === 'AC') 
+                        {
+                            displayContent.textContent = '0';
+                        } 
+                    else if (buttonText === 'BS') 
+                        {
+                            // Basic backspace
+                            if (displayContent.textContent.length > 1) 
+                                {
+                                    displayContent.textContent = displayContent.textContent.slice(0, -1);
+                                } 
+                            else 
+                            {
+                                    displayContent.textContent = '0';
+                            }  
+                        }
+                });
+        });
 });
